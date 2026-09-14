@@ -738,10 +738,7 @@ import pytz
 @app.route("/restart-attendance")
 def restart_attendance():
 
-    # use India time — Render server runs on UTC
-    # ist   = pytz.timezone("Asia/Kolkata")
-    # today = datetime.now(ist).strftime("%A")
-
+ 
     # start the heavy work in background
     # so Flask returns immediately and Render does not timeout
     thread = threading.Thread(target=do_attendance_reset)
