@@ -739,13 +739,18 @@ import pytz
 def restart_attendance():
 
     # use India time — Render server runs on UTC
-    ist   = pytz.timezone("Asia/Kolkata")
-    today = datetime.now(ist).strftime("%A")
+    # ist   = pytz.timezone("Asia/Kolkata")
+    # today = datetime.now(ist).strftime("%A")
 
-    print("INDIA DATE/TIME:", datetime.now(ist))
-    print("DAY:", today)
+    ist = pytz.timezone("Asia/Kolkata")
+    now = datetime.now(ist)
 
-    if today != "Monday":
+
+    print("INDIA DATE/TIME:", now, flush=True)
+    print("WEEKDAY NUMBER:", now.weekday(), flush=True)
+
+    
+    if now.weekday() != 0:
         return """
         <script>
         alert('Attendance reset only available on Monday');
