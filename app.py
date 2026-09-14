@@ -742,6 +742,9 @@ def restart_attendance():
     ist   = pytz.timezone("Asia/Kolkata")
     today = datetime.now(ist).strftime("%A")
 
+    print("INDIA DATE/TIME:", datetime.now(ist))
+    print("DAY:", today)
+
     if today != "Monday":
         return """
         <script>
