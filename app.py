@@ -742,22 +742,6 @@ def restart_attendance():
     # ist   = pytz.timezone("Asia/Kolkata")
     # today = datetime.now(ist).strftime("%A")
 
-    ist = pytz.timezone("Asia/Kolkata")
-    now = datetime.now(ist)
-
-
-    print("INDIA DATE/TIME:", now, flush=True)
-    print("WEEKDAY NUMBER:", now.weekday(), flush=True)
-
-    
-    if now.weekday() != 0:
-        return """
-        <script>
-        alert('Attendance reset only available on Monday');
-        window.location.href='/admin-dashboard';
-        </script>
-        """
-
     # start the heavy work in background
     # so Flask returns immediately and Render does not timeout
     thread = threading.Thread(target=do_attendance_reset)
