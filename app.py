@@ -770,8 +770,9 @@ def do_attendance_reset():
 
         # last week Monday and Sunday
         # when reset runs on Monday, we archive LAST week not current week
-        last_monday = today_dt - timedelta(days=today_dt.weekday() + 7)
-        last_sunday = last_monday + timedelta(days=6)
+        
+        last_monday = today_dt - timedelta(days=7)
+        last_sunday = today_dt - timedelta(days=1)
 
         week_name = (
             last_monday.strftime("%d-%m-%Y")
