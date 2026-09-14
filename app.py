@@ -737,8 +737,6 @@ import pytz
 
 @app.route("/restart-attendance")
 def restart_attendance():
-
- 
     # start the heavy work in background
     # so Flask returns immediately and Render does not timeout
     thread = threading.Thread(target=do_attendance_reset)
